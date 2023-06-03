@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    padding: 20px 40px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.signin-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: calc(100vh - 100px);
+}
+.signin-content .content-wrapper .content-info h2{
+    font-weight: 700;
+    font-size: 60px;
+    color: black;
+}
+.signin-content .content-wrapper .content-info h4{
+    font-size: 20px;
+    font-weight: 400;
+    color: #585151;
+}
+.signin-form form {
+    max-width: 650px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+}
+.signin-form form input{
+    margin-bottom: 24px;
+    height: 55px;
+    border: 1px solid #8C8B8B;
+    border-radius: 10px;
+    padding-left: 25px;
+    font-size: 15px;
+}
+.signin-input-box2{
+    margin-bottom: 16px;
+}
+.signin-form form label{
+    margin-bottom: 8px;
+}
+.forgot-pswd{
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+}
+.btn-groups{
+    margin-top: 40px;
+}
+.btn-groups .submit{
+    width: 100%;
+    height: 55px;
+    background-color: #FF0404;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+}
+.btn-groups h3{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 13px 0;
+}
+.google-link{
+    width: 100%;
+    height: 55px;
+    color: #FF0404;
+    font-size: 17px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-groups h4{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 17px;
+}
+.btn-groups h4 a{
+    color: #FF0404;
+    text-decoration: none;
+    font-weight: 500;
+}

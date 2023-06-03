@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.icon{
+    width: 30px;
+}
+.name{
+    width: 200px;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+.links{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.links a{
+    font-size: 17px;
+    text-decoration: none;
+    color: gray;
+}
+.links a:first-child{
+    color: #FF0404;
+}
+.content{
+    height: 100vh;
+    background-image: linear-gradient(#0000007e, #0000007e), url('/static/images/ladies.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.content h4{
+    font-size: 60px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    line-height: 71px;
+}
+.content h5{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+.btn-group{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.btn-group .btn{
+    padding: 15px 60px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.btn-group .btn:nth-child(2) {
+    background-color: #FF0404;
+}
