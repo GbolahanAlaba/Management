@@ -13,17 +13,17 @@ def homepage(request):
 
 def signin(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
 
-        x = 'gbolahan'
+        x = 'test@gmail.com'
         y = 'pass'
 
-        if username != x and password != y:
-            messages.info(request, 'Invalid Login')
+        if email != x and password != y:
+            messages.info(request, 'Incorrect Email and Password')
             return render(request, 'signin.html')
-        elif username != x:
-            messages.info(request, 'Incorrect Username')
+        elif email != x:
+            messages.info(request, 'Incorrect Email')
             return render(request, 'signin.html')
         elif password != y:
             messages.info(request, 'Incorrect Password')
