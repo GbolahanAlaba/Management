@@ -68,6 +68,7 @@ header{
     align-items: center;
     gap: 20px;
     margin-top: 40px;
+    
 }
 .btn-group .btn{
     padding: 15px 60px;
@@ -78,6 +79,8 @@ header{
     color: white;
     cursor: pointer;
 }
+
+.btn-group a:visited  { color: white;}
 .btn-group .btn:nth-child(2) {
     background-color: #FF0404;
 }
