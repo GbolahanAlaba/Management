@@ -23,13 +23,16 @@
                     <h4>Please enter your accurate log in details</h4>
                 </div>
                 <div class="signin-form">
-                    <form action="{% url 'homepage' %}" method="post">
+                    <form action="" method="post">
                         {% csrf_token %}
                         <label for="email">Email</label>
-                        <input type="text" placeholder="name@email.com" class="signin-input-box">
+                        <input type="text" placeholder="name@email.com" class="signin-input-box" name="username" required>
                         <label for="password">Password</label>
-                        <input type="text" placeholder="*******" class="signin-input-box2">
+                        <input type="text" placeholder="*******" class="signin-input-box2" name="password" required>
                         <a href="#" class="forgot-pswd">Forgot Password ?</a>
+                        {% for message in messages %}
+                        <h3> {{message}} </h3>
+                        {% endfor %}
                         <div class="btn-groups">
                             <button class="submit">Sign In</button>
                             <h3>or</h3>

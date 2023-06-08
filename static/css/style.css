@@ -80,7 +80,12 @@ header{
     cursor: pointer;
 }
 
-.btn-group a:visited  { color: white;}
+.btn-group .bth a:visited {
+     color: white;
+     text-decoration: none;
+       
+}
+
 .btn-group .btn:nth-child(2) {
     background-color: #FF0404;
 }
