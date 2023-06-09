@@ -45,8 +45,8 @@ def signin(request):
 def signup(request):
 
     if request.method == 'POST':
-        fullname = request.POST['first_name']
-        empcode = request.POST['last_name']
+        fullname = request.POST['fullname']
+        empcode = request.POST['employ']
         email = request.POST['username']
         password = request.POST['password']
         Repassword = request.POST['repassword']
@@ -63,12 +63,13 @@ def signup(request):
         
         else:
             obj = Signup()
-            obj.Fullnamee = fullname
+            obj.Fullname = fullname
             obj.Empcode = empcode
             obj.Email = email
             obj.Password = password
             obj.save()
 
+            Signup.objects.raw("delete from Generic_emp where Code = '%s'"%(empcode))
             return redirect("login")
 
     return render(request, 'register.html')
