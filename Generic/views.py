@@ -41,5 +41,34 @@ def signin(request):
 
     return render(request, "signin.html")
 
-# def createaccount(request):
-#     return render(request, "create_account.html")
+
+def signup(request):
+
+    if request.method == 'POST':
+        fullname = request.POST['first_name']
+        empcode = request.POST['last_name']
+        email = request.POST['username']
+        password = request.POST['password']
+        Repassword = request.POST['repassword']
+
+        checkemp = Emp.objects.raw("select Code from Generic_emp")
+
+        if password != Repassword:
+            messages.info(request, 'Password not match')
+            return render(request, 'signup.html')
+        
+        elif empcode != checkemp:
+            messages.info(request, 'Invalid Employement Code')
+            return render(request, 'signup.html')
+        
+        else:
+            obj = Signup()
+            obj.Fullnamee = fullname
+            obj.Empcode = empcode
+            obj.Email = email
+            obj.Password = password
+            obj.save()
+
+            return redirect("login")
+
+    return render(request, 'register.html')
