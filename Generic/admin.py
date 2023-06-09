@@ -4,7 +4,7 @@ from .forms import *
 
 class SIGNUP(admin.ModelAdmin):
     form = SignupForm 
-    list_display = ['Fullname', 'Email', 'Timestamp']
+    list_display = ['Fullname', 'Email', 'Empcode', 'Timestamp']
     list_filter = ['Fullname']
     search_fields = ['Fullname']
 
