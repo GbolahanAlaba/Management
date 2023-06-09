@@ -14,22 +14,30 @@ def homepage(request):
 def signin(request):
     if request.method == 'POST':
         email = request.POST['email']
-        password = request.POST['password']
+        pwd = request.POST['password']
 
-        x = 'test@gmail.com'
-        y = 'pass'
+        login = Signup.objects.raw("select * from Generic_signup where Email = '%s' and Password = '%s'"%(email, pwd))
+        email_exist = Signup.objects.raw("select * from Generic_signup where Email = '%s' and Password != '%s'"%(email, pwd))
+        password_exist = Signup.objects.raw("select * from Generic_signup where Email != '%s' and Password = '%s'"%(email, pwd))
 
-        if email != x and password != y:
-            messages.info(request, 'Incorrect Email and Password')
-            return render(request, 'signin.html')
-        elif email != x:
-            messages.info(request, 'Incorrect Email')
-            return render(request, 'signin.html')
-        elif password != y:
+        # c = 'AJW-CSHR001'
+        # csh = Signup.objects.raw("select * from Generic_signup where Empcode = '%s'"%(c))
+
+
+        if login:
+            return redirect('homepage')        
+        
+        elif email_exist:
             messages.info(request, 'Incorrect Password')
             return render(request, 'signin.html')
+        
+        elif password_exist:
+            messages.info(request, 'Incorrect Email')
+            return render(request, 'signin.html')
+        
         else:
-            return redirect('homepage')
+            messages.info(request, 'Incorrect Email and Password')
+            return render(request, 'signin.html')
 
     return render(request, "signin.html")
 
