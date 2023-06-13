@@ -23,11 +23,7 @@ def signin(request):
         # c = 'AJW-CSHR001'
         # csh = Signup.objects.raw("select * from Generic_signup where Empcode = '%s'"%(c))
 
-        def fun():
-            Signup.objects.raw("delete * from Generic_emp where Code = 'CEO'")
-
         if login:
-            fun()
             return redirect('homepage')        
         
         elif email_exist:
@@ -58,6 +54,7 @@ def signup(request):
 
         checkemp = Emp.objects.raw("select * from Generic_emp where Code = '%s'"%(empcode))
         checkemail = Signup.objects.raw("select * from Generic_signup where Email = '%s'"%(email))
+        dell = Signup.objects.raw("delete * from Generic_emp where Code = '%s'"%(empcode))
 
         if password != Repassword:
             messages.info(request, 'Password not match')
@@ -79,7 +76,7 @@ def signup(request):
             obj.Password = password
             obj.save()
 
-            x = Signup.objects.raw("delete * from Generic_emp where Code = '%s'"%(empcode))
+        
             return redirect("signin")
 
     return render(request, 'signup.html')
