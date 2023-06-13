@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/signin.css' %}">
-    <title>Document</title>
+    <title>Sign Up ! APP-24</title>
 </head>
 <body>
     <div class="container">
@@ -19,22 +19,28 @@
         <div class="signin-content">
             <div>
             <div class="content-wrapper">
+
+                {% for message in messages %}
+                <h3 class="error"> {{message}} </h3>
+                {% endfor %}
                 <div class="content-info">
+
                     <h2>Create an account</h2>
                     <h4>Please fill in your accurate details</h4>
                 </div>
                 <div class="signin-form">
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
                         <label for="fullname">Full name</label>
-                        <input type="text" placeholder="john mark" class="signin-input-box">
-                        <label for="email">Email</label>
-                        <input type="text" placeholder="name@email.com" class="signin-input-box2">
+                        <input type="text" placeholder="john mark" class="signin-input-box" name="fullname" required>
                         <label for="employment">Employment code</label>
-                        <input type="text" placeholder="EVGHDI" class="signin-input-box">
+                        <input type="text" placeholder="EVGHDI" class="signin-input-box" name="emp" required>
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="name@email.com" class="signin-input-box2" name="email" required>
                         <label for="password">Password</label>
-                        <input type="password" placeholder="*******" class="signin-input-box">
+                        <input type="password" placeholder="*******" class="signin-input-box" name="password" required>
                         <label for="confirm-password">Confirm password</label>
-                        <input type="password" placeholder="john mark" class="signin-input-box">
+                        <input type="password" placeholder="john mark" class="signin-input-box" name="repassword" required>
                         <div class="btn-groups">
                             <button class="submit">Sign up</button>
                             <h3>or</h3>
@@ -42,7 +48,7 @@
                                 <img src="../assets/images/google icon.svg" alt="">
                                 <span>Sign up with Google</span>
                             </button>
-                            <h4>Already have an account ? <a href="signin.html">Sign in</a></h4>
+                            <h4>Already have an account ? <a href="signin">Sign in</a></h4>
                         </div>
                         
                     </form>

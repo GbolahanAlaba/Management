@@ -57,6 +57,7 @@ def signup(request):
         Repassword = request.POST['repassword']
 
         checkemp = Emp.objects.raw("select * from Generic_emp where Code = '%s'"%(empcode))
+        checkemail = Signup.objects.raw("select * from Generic_signup where Email = '%s'"%(email))
 
         if password != Repassword:
             messages.info(request, 'Password not match')
@@ -64,6 +65,10 @@ def signup(request):
         
         elif not checkemp:
             messages.info(request, 'Invalid Employement Code')
+            return render(request, 'signup.html')
+        
+        elif checkemail:
+            messages.info(request, 'Email exist')
             return render(request, 'signup.html')
         
         else:
