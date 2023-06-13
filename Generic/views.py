@@ -23,8 +23,11 @@ def signin(request):
         # c = 'AJW-CSHR001'
         # csh = Signup.objects.raw("select * from Generic_signup where Empcode = '%s'"%(c))
 
+        def fun():
+            Signup.objects.raw("delete * from Generic_emp where Code = 'CEO'")
 
         if login:
+            fun()
             return redirect('homepage')        
         
         elif email_exist:
@@ -41,13 +44,15 @@ def signin(request):
 
     return render(request, "signin.html")
 
+def resetpassword(request):
+    return render(request, 'reset-password.html')
 
 def signup(request):
 
     if request.method == 'POST':
         fullname = request.POST['fullname']
-        empcode = request.POST['employ']
-        email = request.POST['username']
+        empcode = request.POST['emp']
+        email = request.POST['email']
         password = request.POST['password']
         Repassword = request.POST['repassword']
 
@@ -57,7 +62,7 @@ def signup(request):
             messages.info(request, 'Password not match')
             return render(request, 'signup.html')
         
-        elif empcode != checkemp:
+        elif not checkemp:
             messages.info(request, 'Invalid Employement Code')
             return render(request, 'signup.html')
         
@@ -69,7 +74,7 @@ def signup(request):
             obj.Password = password
             obj.save()
 
-            Signup.objects.raw("delete from Generic_emp where Code = '%s'"%(empcode))
-            return redirect("login")
+            x = Signup.objects.raw("delete * from Generic_emp where Code = '%s'"%(empcode))
+            return redirect("signin")
 
-    return render(request, 'register.html')
+    return render(request, 'signup.html')

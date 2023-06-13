@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img class="icon" src="{% static 'images/Vector.png' %}" alt="">
+                <img class="name" src="{% static 'images/APP-24 Finance.png' %}" alt="">
+            </div>
+        </header>
+        <div class="signin-content">
+            <div>
+            <div class="content-wrapper">
+                <div class="content-info">
+                    <h2>Create an account</h2>
+                    <h4>Please fill in your accurate details</h4>
+                </div>
+                <div class="signin-form">
+                    <form>
+                        <label for="fullname">Full name</label>
+                        <input type="text" placeholder="john mark" class="signin-input-box">
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="name@email.com" class="signin-input-box2">
+                        <label for="employment">Employment code</label>
+                        <input type="text" placeholder="EVGHDI" class="signin-input-box">
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="*******" class="signin-input-box">
+                        <label for="confirm-password">Confirm password</label>
+                        <input type="password" placeholder="john mark" class="signin-input-box">
+                        <div class="btn-groups">
+                            <button class="submit">Sign up</button>
+                            <h3>or</h3>
+                            <button class="google-link">
+                                <img src="../assets/images/google icon.svg" alt="">
+                                <span>Sign up with Google</span>
+                            </button>
+                            <h4>Already have an account ? <a href="signin.html">Sign in</a></h4>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            </div>  
+        </div>
+    </div>
+</body>
+</html>
